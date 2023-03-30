@@ -1,0 +1,15 @@
+## Solution :
+
+> First i found a page contains an input field and a table and i can type a film name and it will give me some details about this film , 
+  so when i tried to insert a normal film name it gave me some details about and when i tried a non existing film it told me : 'No movies were found!' ,
+  so lets try to inject some payloads and lets start with `iron man AND sleep(5) --` it gave me : "Error: HY000"
+  so `' OR 1=1 --` retrieved for me all the films data in the database , so lets try to find out some other data that we can retrieve from the database , 
+  lets try to access some data from other tables , so i will try to retrieve the names of tables in this database by trying
+  `' UNION SELECT name, name, name FROM sqlite_master WHERE type='table';--`
+  gave me : "Error: HY000" so lets try:
+  `' UNION SELECT name, name, name, null,null,null FROM sqlite_master WHERE type='table';--` , 
+  it worked and that means that there seven tables in this database !
+  it retrieved for me some table name like : (blog  ,heroes , movies , users) !
+  so by trying a lot then reaching to that payload :
+  `' UNION SELECT null, id, null, password,null,null FROM users;--`  , 
+  and there is some sensitive data has been retrieved !
