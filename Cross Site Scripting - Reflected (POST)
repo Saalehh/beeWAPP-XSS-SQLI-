@@ -1,0 +1,5 @@
+## Solution :
+
+>  First i found two input fields requiring first name and last name ,
+   i tried to type the normal data and i noticed that there is a hello message to my name,
+   so that indicates that i may find a reflected XSS ,so i tried to type this payload `<script>alert('XSS')</script>` and it worked !
