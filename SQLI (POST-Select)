@@ -1,0 +1,12 @@
+## Solution :
+
+> First i found a webpage that offers me to select a film and then it will show for me some details about that film ,
+  and it is obvious that this data is being retrieved from a databse system , so there is no input field to inject any payload ,
+  so lets try to open the BurpSuite and inject our payload in the request ,
+  when i opened the Burp i noticed that my choice is sent in the request as  an index number not a name ,
+  and that means that this number may be an input to a sql query that retrieves the film details where the film id is "MyChoosenIndex",
+  so lets replace this index with this payload : `' OR 1=1 --  ` , after doing that the page showed me an error that says that the sentax of my sql query is not right !
+  and it tells me that it uses [[MySQL]] that means that we are near !
+  lets try another payload , lets see the sleep function in  MySQL and see if it will work ,
+  the payload would be : `1 AND sleep(5) --`   it worked actually and the page waited for 5 seconds before responding ,
+  so that is a time-based SQL injection .
