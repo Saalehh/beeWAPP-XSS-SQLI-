@@ -1,0 +1,12 @@
+## Solution :
+
+>First i found that there is a page that require me to choose a movie category from three categories ,
+so i choosed one of them and submitted and i said to me "Thank you for making your choice!" 
+so there is no thing reflected so according to the task name it is related to stored cookie XSS ,
+so i tried to open my BurpSuite and intercepted the request after choosing the film category 
+and i found that in the cookie field mt choice is sent in it , so i tried to add a new category that is not found in the choices ,
+and i achieved that by sending this new category in the url parameters and when the BurpSuite intercepted it ,
+i found that request had already sent with the new parameters , and after forwarding this request and reloaded the page ,
+i found in BurpSuite that the cookie in the request is sent with the value that i have inserted at the last time ,
+so that means that i can inject a malicious code in the cookies and it will be stored in the browser, 
+and the next time the user requested the page that is related to that cookie the malicious code will be executed ! 
