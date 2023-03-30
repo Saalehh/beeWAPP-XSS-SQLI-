@@ -1,0 +1,10 @@
+## Solution :
+
+> First the page found wants me to enter the CAPTHCA in an input field ,
+  so lets try to enter the correct CAPTHCA and see what would happen , 
+  when i did that i was redirected to another page that has an input filed and a table so when i entered a film name in this input field
+  it shows me some details about this film in the table and that is obvious that to do that it should communicate to the database with my input ,
+  so lets inject a payload in this input and see what can we find , i can see my input in the query parameters , so lets try this `iron man' AND sleep(5) --` ,
+  an error message displayed instead of the film details and this message said that my syntax in sql is not correct , it also showed that it uses MySQL , 
+  so lets try : `IRON+MAN'UNION ALL SELECT 1,2,3,4,5,6,7--+` in the query parameters , it worked and that means that we could execute a sql query through input field ,
+  in addition another thing i noticed that if i submitted without typing any thing in the input field this will retrieve me all the records in the database !
