@@ -1,0 +1,14 @@
+## Solution :
+
+> First i found an input field that asks for my name so ,
+  i tried to normally insert my name to see what will happen ,
+  and when i pressed enter i have redirected to another page and i found that there is a hello message containing the inserted name ,
+  so that indicates that i may find a reflected XSS , i also noticed that in the url of the new page has parameters containing that name ,
+  i tried to edit the value of that param from the url and when i reloaded the page the hello message changed with the new one ,
+  so i tried to inject that payload  `<script>alert('XSS')</script>` in the url and see what would happen , 
+  and i found that the name in the hello message changed and also the filed "vote" in the voting table also changed with that value but the payload did not run,
+  i tried to encode that payload and retry but also it did not run , 
+  so i decided  to open the source code and see what happens at the beginning when i inserted the payload in the input field, 
+  and when i searched for the name i entered in the input field i found that there is a link containing the url parameters ,
+  so i tried to close the link and start a script at the next time and i typed this payload in the value of the input field in the url : `><script>alert('XSS')</script> ` 
+  and it worked !
