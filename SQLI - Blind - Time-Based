@@ -1,0 +1,6 @@
+## Solution: 
+
+> First i found a page that contains an input field and when i type a film name in it and submit it will send me an email with the details about this film , 
+  so it is a blind sqli as i cannot see the result in data retrieved to me ,
+  so according to my preknowledge about time based sqli so i tryed this payload : `sleep(5) ` and no thing happened ,
+  so i tried another way : `'or 1=1 AND SLEEP(5); --` and this worked and the webpage had a delay for a lot of time ! 
